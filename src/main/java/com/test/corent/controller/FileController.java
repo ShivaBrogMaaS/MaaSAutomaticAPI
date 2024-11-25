@@ -69,7 +69,7 @@ return ResponseEntity.status(HttpStatus.OK).body(files);
 @GetMapping("/files/{id}")
 public ResponseEntity<byte[]> getFile(@PathVariable String id) {
 FileDB fileDB = storageService.getFile(id);
-
+System.out.println("The Value of ID is "+id);
 return ResponseEntity.ok()
 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileDB.getFileName() + "\"")
 .body(fileDB.getData());
